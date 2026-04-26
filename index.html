@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>EazyyBuy - Belanja & Ulasan Profesional</title>
+
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header>
+    <div class="logo">
+        <div class="logo-circle">EB</div>
+        <h2>EazyyBuy</h2>
+    </div>
+    <div class="cart-btn" onclick="openCart()">🛒 Keranjang (<span id="cartCount">0</span>)</div>
+</header>
+
+<div class="search">
+    <input type="text" id="searchInput" placeholder="Cari produk..." onkeyup="searchProduct(this.value)">
+</div>
+
+<div class="banner">
+    <h1>Solusi Teknologi & Gaya Hidup</h1>
+    <p>Belanja aman, ulasan terpercaya.</p> 
+</div>
+
+<div class="container">
+    <div class="products" id="productList"></div>
+    <div id="no-result">Produk tidak ditemukan...</div>
+</div>
+
+<!-- CART -->
+<div class="modal" id="cartModal">
+    <div class="box">
+        <span onclick="closeCart()" class="close">&times;</span>
+        <h3>Keranjang Anda</h3>
+        <hr>
+        <div id="cartItems"></div>
+        <div class="cart-total">
+            <strong>Total: <span class="price">Rp<span id="total">0</span></span></strong>
+        </div>
+        <button onclick="openCheckout()" class="buy">Checkout Sekarang</button>
+    </div>
+</div>
+
+<!-- CHECKOUT -->
+<div class="modal" id="checkoutModal">
+    <div class="box">
+        <span onclick="document.getElementById('checkoutModal').style.display='none'" class="close">&times;</span>
+        <h3>Konfirmasi Pesanan</h3>
+        <form onsubmit="confirmOrder(event)">
+            <input required id="custName" placeholder="Nama Lengkap">
+            <input required id="custPhone" placeholder="WhatsApp (08...)">
+            <textarea required id="custAddr" placeholder="Alamat Pengiriman" rows="3"></textarea>
+            <div id="checkoutSummary"></div>
+            <button class="buy">Bayar Sekarang</button>
+        </form>
+    </div>
+</div>
+
+<script src="coba.js"></script>
+</body>
+</html>
